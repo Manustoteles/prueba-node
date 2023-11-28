@@ -1,0 +1,38 @@
+[
+    {
+        "id" : 1,
+        "marca" : "Olmo",
+        "modelo" : "Regal",
+        "rodado" : 29,
+        "anio" : 2022,
+        "color": "roja",
+        "peso" : 16,
+        "tipo" : "Montañera",
+        "precio" : 120000,
+        "vendida" : "si"
+    },
+    {
+        "id" : 2,
+        "marca" : "Shifter",
+        "modelo" : "Techno",
+        "rodado" : 19,
+        "anio" : 2020,
+        "color": "gris",
+        "peso" : 12,
+        "tipo" : "ruta",
+        "precio" : 180000,
+        "vendida" : "no"
+        },
+        {
+            "id" : 3,
+            "marca" : "Fixie",
+            "modelo" : "Ruta",
+            "rodado" : 13,
+            "anio" : 2017,
+            "color": "azul",
+            "peso" : 19,
+            "tipo" : "ruta",
+            "precio" : 120000,
+            "vendida" : "si"
+            }
+    ]
