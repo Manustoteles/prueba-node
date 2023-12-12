@@ -3,6 +3,11 @@ const express = require('express')
 const path = require('path')
 
 const app = express()
+
+const publicPath =path.join(__dirname,'public')
+
+app.use(express.static(publicPath))
+
 const direccionBase = path.join(__dirname,'views')
 
 let port = 3030
@@ -12,8 +17,8 @@ app.get('/babbage',(req,res) => {
     res.sendFile(babbagePath)
 })
 
-app.get('/barners-lee',(req,res) => {
-    let barnersPath = path.join(direccionBase,'barners-lee.html')
+app.get('/berners-lee',(req,res) => {
+    let barnersPath = path.join(direccionBase,'berners-lee.html')
     res.sendFile(barnersPath)
 })
 
