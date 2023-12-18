@@ -1,6 +1,7 @@
 *{
     padding-top: 0px;
     padding-bottom: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 /*header*/
 header{
@@ -29,17 +30,20 @@ ul li a{
     text-align: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 10vh;
 }
 .fa-bars{
     background-color: #1259c3;
     border: 7px solid  #1259c3;
     border-radius: 5px;    
-    font-size: 20px;
+    font-size: 40px;
     min-height: 20px;
     line-height: 30px;
     align-items: center; 
     color:white;
 }
+/*main*/
 
 .descuento{
     font-size: 16px;
@@ -55,4 +59,20 @@ ul li a{
 
 .titulares{
     font-size: 24px;
+}
+
+/* footer */
+footer{
+    text-align: center;
+}
+.footer-titulos{
+    font-size: 24px;
+    
+}
+footer .fas{
+    font-size: 70px;
+    color:#1259c3 ;
+}
+.Copyright{
+    color:#666;;    
 }
