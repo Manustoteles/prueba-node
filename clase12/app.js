@@ -3,7 +3,7 @@ autosImportados = require("./autos")
 let concesionaria = {
     autos: autosImportados,
 
-    buscarAuto: function (nroPatente) {
+    buscarAuto : function (nroPatente) {
         const autoBuscado = this.autos.find(function (auto) {
             return auto.patente == nroPatente
         })
@@ -66,29 +66,6 @@ let concesionaria = {
      },
 }
 
+console.log(concesionaria.buscarAuto("jjj"))
 
 
-
- /*autosQuePuedeComprar: function (persona) {
-    let autosParaLaVenta = this.autosParaLaVenta()
-    let autosQuePuedeComprar = [];
-
-    for (i = 0; i < autosParaLaVenta.length; i++) {
-        let autoParaLaVenta = autosParaLaVenta[i]
-        if (this.puedeComprar(autoParaLaVenta, persona)) {
-            autosQuePuedeComprar.push(autoParaLaVenta)
-        }
-    }
-
-    return autosQuePuedeComprar
-
-}/*
-
-let persona = {
-    nombre: "Juan",
-    capacidadDePagoEnCuotas: 0,
-    capacidadDePagoTotal: 0
-}
-
-
-console.log(concesionaria.autosQuePuedeComprar(persona))
