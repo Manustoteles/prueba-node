@@ -141,7 +141,6 @@ header {
     }
     .main-header-top-bar, .main-navbar{
         max-width: 1200px;
-        border: red 2px dotted ;
         margin: auto;
     }
     .main-navbar{
