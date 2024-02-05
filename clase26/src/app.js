@@ -9,13 +9,16 @@ app.use(express.static(rute))
 // Indicamos el motor de plantilla
 app.set("view engine",  "ejs");
 //Direccionamos a las vistas
-app.set('views', path.join(__dirname, '/src/views'));
+app.set('views', path.join(__dirname, 'views/'));
 
 const mainRoutes = require('./route/mainRoutes')
 
 app.use('/',mainRoutes)
 
+app.use('/detalleMenu',mainRoutes)
+
+
 
 app.listen(port, ()=> {
-    console.log('estamos corriendo')
+    console.log(`Nuestra app corre en http://localhost:${port}`)
 })
