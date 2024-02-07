@@ -7,7 +7,7 @@ const e = require('express')
 
 router.get('/', mainControllers.index)
 
-router.get('/detalleMenu', mainControllers.detail)
+router.get('/detalleMenu/:id', mainControllers.detail)
 
 
 

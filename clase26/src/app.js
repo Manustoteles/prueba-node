@@ -17,7 +17,9 @@ app.use('/',mainRoutes)
 
 app.use('/detalleMenu',mainRoutes)
 
-
+app.use((req, res, next) =>{
+    res.status(404).render('not-found')
+})
 
 app.listen(port, ()=> {
     console.log(`Nuestra app corre en http://localhost:${port}`)
