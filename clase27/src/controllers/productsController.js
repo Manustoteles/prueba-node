@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let products = require('../data/productsDataBase.json');
 const crypto = require('crypto');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -53,15 +53,58 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
+		productoId = req.params.id
+
+		productoSeleccionado = products.find((product) => product.id == productoId)
+		console.log('este es el product id del edit' + productoId)
+		console.log(productoSeleccionado)
+		res.render('product-edit-form', { productoSeleccionado })
+		
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		// Do the magic // capturamos la informacion 
+		const { name, price, discount, category, description } = req.body;
+		const { id } = req.params;
+
+		//recorrer un array de objetos y donde encontremos un obj == id,params 
+		products.forEach(product => {
+			if(product.id == id){
+				product.name = name;
+				product.price = price;
+				product.discount = discount;
+				product.category = category;
+				product.description = description;
+
+			} 
+			//sobreescribmos el archivo
+			fs.writeFileSync(
+				path.join(__dirname, '../data/productsDataBase.json'),
+				JSON.stringify(products, null, 4), 
+				{encoding: 'utf-8'}
+			)
+
+		})
+
+		res.redirect('/')
+		
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
+		const { id } = req.params
+
+		 products = products.filter(product => product.id != id)
+
+		fs.writeFileSync(
+			path.join(__dirname, '../data/productsDataBase.json'),
+			JSON.stringify(products, null, 4), 
+			{encoding: 'utf-8'}
+		)
+
+		res.redirect('/products')
+
 	}
 };
 
