@@ -37,12 +37,12 @@
     },
     {
         "id": 6,
-        "name": "Aire Acondicionado 3200w Frio / Calor",
+        "name": "Aire Acondicionado 3200w Frio / Calor Modificado",
         "description": "AIRE SPLIT 3200W TACA-3200WCHSA/KC FC TCL. Capacidad frio 3200 Watts. Capacidad calor 3300 Watts. Potencia Electrica(W)frio 996. Potencia Electrica(W)calor 1028. Eficiencia energética calor C. Eficiencia energética frio A. Frigorias 2750 UNIDAD INTERIOR. Peso Bruto 10kg. Peso Neto 7 kg",
-        "price": 20999,
-        "discount": 12,
+        "price": "20999",
+        "discount": "12",
         "image": "img-aire-acondicionado.jpg",
-        "category": "in-sale"
+        "category": "visited"
     },
     {
         "id": 7,
