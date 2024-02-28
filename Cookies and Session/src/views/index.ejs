@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<link rel="stylesheet" href="/css/app.css">
+</head>
+<body <% if (locals.indexToUpdate) { %> 
+	style="background-color: <%= indexToUpdate.colors %>;" 
+	<% } %>>
+	<h1>Home Page</h1>
+	<div>
+		<% if (locals.errors && errors.name) {%>
+			<p><%= errors.name.msg %>!!!</p>
+		<% } %>
+		<% if (locals.errors && errors.email) {%>
+			<p><%= errors.email.msg %>!!!</p>
+		<% } %>
+		<% if (locals.errors && errors.colors) {%>
+			<p><%= errors.colors.msg %>!!!</p>
+		<% } %>
+		<% if (locals.errors && errors.age) {%>
+			<p><%= errors.age.msg %>!!!</p>
+		<% } %>
+	</div>
+	<div>
+		<% if (!locals.indexToUpdate) {%>
+		<form action="/update" method="post">
+			<div>
+				<label for="name">Nombre</label>
+				<input type="text" name="name" id="name" required
+				value="<%= locals.old && old.name %>">
+			</div>
+			<div>
+				<label for="colors">Colores de Fondo</label>
+				<select name="colors" id="colors" required>
+					<option value="red">Rojo</option>
+					<option value="blue">Azul</option>
+					<option value="green">Verde</option>
+				</select>
+			</div>
+			<div>
+				<label for="email">E-mail</label>
+				<input type="email" name="email" id="email" required
+				value="<%= locals.old && old.email %>">
+			</div>
+			<div>
+				<label for="age">Edad</label>
+				<input type="number" name="age" id="age"
+				value="<%= locals.old && old.age %>">
+			</div>
+			<button type="submit">Enviar</button>
+		</form>
+		<% } %>
+	</div>
+	<% if (locals.indexToUpdate) {%>
+		<p>Hola Usuario <%= indexToUpdate.name %>, elegiste el color: <%= indexToUpdate.colors %>, tu mail es:</p>
+		<p><%= indexToUpdate.email %> y tu edad es : <%= indexToUpdate.age %></p>
+	<% } %>
+</body>
+</html>
