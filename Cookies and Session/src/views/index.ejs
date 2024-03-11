@@ -6,9 +6,12 @@
 	<title>Home Page</title>
 	<link rel="stylesheet" href="/css/app.css">
 </head>
-<body <% if (locals.indexToUpdate) { %> 
+<body <% if(colorDeFondo) { %>
+	style="background-color: <%= colorDeFondo %>;"
+
+	<%}else if (locals.indexToUpdate) { %> 
 	style="background-color: <%= indexToUpdate.colors %>;" 
-	<% } %>>
+	<% } %> >
 	<h1>Home Page</h1>
 	<div>
 		<% if (locals.errors && errors.name) {%>
@@ -50,13 +53,24 @@
 				<input type="number" name="age" id="age"
 				value="<%= locals.old && old.age %>">
 			</div>
+			<div>
+				<input type="checkbox" name="colorDefault" id="colorDefault">
+				<label for="colorDefault">Mantener Color por Defecto?</label>
+			</div>
 			<button type="submit">Enviar</button>
 		</form>
 		<% } %>
 	</div>
-	<% if (locals.indexToUpdate) {%>
-		<p>Hola Usuario <%= indexToUpdate.name %>, elegiste el color: <%= indexToUpdate.colors %>, tu mail es:</p>
-		<p><%= indexToUpdate.email %> y tu edad es : <%= indexToUpdate.age %></p>
-	<% } %>
+	<div>
+		<% if (locals.indexToUpdate) {%>
+			<p>Hola Usuario <%= indexToUpdate.name %>, elegiste el color: <%= indexToUpdate.colors %>, tu mail es:</p>
+			<p><%= indexToUpdate.email %> y tu edad es : <%= indexToUpdate.age %></p>
+			<a href="/mensaje"><button>Ir a la Paginita</button></a>
+		<% } %>
+	</div>
+
+	<form action="/cookies" method="post">
+		<button type="submit">Borrar Cookies</button>
+	</form>
 </body>
 </html>

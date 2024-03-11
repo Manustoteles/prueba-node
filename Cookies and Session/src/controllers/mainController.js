@@ -1,14 +1,18 @@
 // requerir express-validator para poder validar
 const { validationResult } = require('express-validator')
-const session = require('express-session')
+const session = require('express-session');
+const { on } = require('../app');
 
 const mainController = {
     index: (req,res) => {
-        res.render('index')
+        let colorDeFondo = req.cookies.colorDeFondo
+        console.log(colorDeFondo)
+        res.render('index', { colorDeFondo })
     },
     indexUpdate : (req,res) =>{
         let errors = validationResult(req);
-        console.log(errors.mapped())
+        
+       
 
         if (errors.isEmpty()){
             const indexToUpdate = {
@@ -19,13 +23,19 @@ const mainController = {
     
     
             }
-           
-            console.log(indexToUpdate)
+           if(req.body.colorDefault == 'on'){
+            res.cookie('colorDeFondo', req.body.colors)
+            
+           } 
+            
+            let colorDeFondo = req.cookies.colorDeFondo
+
             req.session.colorDeFondo = req.body.colors
             req.session.nombreDeUsuario = req.body.name
-            res.render('index', { indexToUpdate })
+            res.render('index', { indexToUpdate, colorDeFondo })
+
         }else {
-            res.render('index', { errors:errors.mapped(), old:req.body})
+            res.render('index', { errors:errors.mapped(), old:req.body ,colorDeFondo})
         }
         
     },
@@ -36,7 +46,13 @@ const mainController = {
         }
         console.log(datos)
         res.render('indexMssg', { datos })
-    }
+    },  
+    deleteCookie: (req,res) => {
+       
+        let colorDeFondo = res.cookies(colorDeFondo,'', { expires: new Date(0) })
+        console.log(colorDeFondo)
+        res.render('index', { colorDeFondo })
+    },
 }
 
 module.exports = mainController;

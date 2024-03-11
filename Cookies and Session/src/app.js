@@ -1,15 +1,17 @@
 // ************ Require's ************
 const createError = require('http-errors');
-const cookieParser = require('cookie-parser');
+
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const appMiddleware = require('./middlewares/userLogs')
 //requerimos express session
 const session = require('express-session')
+// requerimos cookies parser
 
 
 
+const cookieParser = require('cookie-parser');
 // ************ express() - (don't touch) ************
 const app = express();
 

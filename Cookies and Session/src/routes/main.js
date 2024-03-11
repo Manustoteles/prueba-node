@@ -20,6 +20,8 @@ const routeMiddleware = require('../middlewares/adminControl')
 
 router.get('/', mainController.index)
 router.post('/update', validarDeIndex ,mainController.indexUpdate)
+router.post('/cookies', mainController.deleteCookie)
+
 router.get('/mensaje', mainController.mensajes)
 
 
